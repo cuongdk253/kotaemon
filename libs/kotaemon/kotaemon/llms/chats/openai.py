@@ -14,6 +14,8 @@ from kotaemon.base import (
 
 from .base import ChatLLM
 
+import json
+
 if TYPE_CHECKING:
     from openai.types.chat.chat_completion_message_param import (
         ChatCompletionMessageParam,
@@ -331,6 +333,8 @@ class ChatOpenAI(BaseChatOpenAI):
     def openai_response(self, client, **kwargs):
         """Get the openai response"""
         params = self.prepare_params(**kwargs)
+        # print("=====> payload")
+        # print(json.dumps(params, indent=2, ensure_ascii=False))
         return client.chat.completions.create(**params)
 
     async def aopenai_response(self, client, **kwargs):

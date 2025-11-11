@@ -16,6 +16,7 @@ from ktem.main import App  # noqa
 app = App()
 demo = app.make()
 demo.queue().launch(
+    server_name="0.0.0.0",
     favicon_path=app._favicon,
     inbrowser=True,
     allowed_paths=[

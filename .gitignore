@@ -5,6 +5,7 @@ activate*
 activate/*
 kotaemon-env*
 .env
+.vscode
 
 ### Emacs ###
 # -*- mode: gitignore; -*-
