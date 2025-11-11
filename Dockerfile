@@ -68,7 +68,8 @@ RUN apt-get update -qqy && \
         libxext6 \
         libreoffice \
         ffmpeg \
-        libmagic-dev
+        libmagic-dev \
+        libmagic1
 
 # Install torch and torchvision for unstructured
 RUN --mount=type=ssh  \
@@ -79,7 +80,8 @@ RUN --mount=type=ssh  \
 RUN --mount=type=ssh  \
     --mount=type=cache,target=/root/.cache/pip  \
     pip install -e "libs/kotaemon[adv]" \
-    && pip install unstructured[all-docs]
+    && pip install unstructured[all-docs] \
+    && pip install python-magic
 
 # Install lightRAG
 ENV USE_LIGHTRAG=true
